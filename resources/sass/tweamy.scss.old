@@ -1,0 +1,938 @@
+/*
+	tweamy.css
+
+	Description: css file
+
+	Version: "1.0", Build: "0"
+	Date: august 2013
+
+	Design & Development: Triple M IT
+	by Stefan ten Cate
+
+*/
+
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+@import 'compass/layout/stretching';
+@import 'compass/css3/box-shadow';
+
+@import 'sencha-touch/default';
+//@import 'sencha-touch/default/all';
+
+@include icon-font('Pictos', inline-font-files('pictos/pictos-web.woff', woff, 'pictos/pictos-web.ttf', truetype,'pictos/pictos-web.svg', svg));
+@include icon-font('Tweamy', inline-font-files('tweamy/Tweamy.woff', woff, 'tweamy/Tweamy.ttf', truetype, 'tweamy/Tweamy.svg', svg));
+@include icon-font('Tweamy2', inline-font-files('tweamy/Tweamy2.woff', woff, 'tweamy/Tweamy2.ttf', truetype, 'tweamy/Tweamy2.svg', svg));
+
+$font-family: 'Tweamy2', 'Pictos', 'Droid Sans' !default;
+
+
+// Color definitions
+$apple-blue: rgb(1, 124, 254);
+$apple-red: rgb(255, 62, 62);
+$apple-orange: rgb(246, 135, 17);
+$apple-yellow: rgb(255, 224, 0);
+$apple-green: rgb(58, 196, 0);
+$apple-black: rgb(31, 31, 31);
+$apple-black2: rgb(45, 45, 45);
+$apple-grey: rgb(188, 189, 193);
+
+
+//carousel indicator
+$indicator-dark: rgba($apple-blue, .1) !default;
+$indicator-dark-active: rgba($apple-blue, .3) !default;
+
+//
+#teamMemberListId, #teamListId, #otherListId, #teamMembersFieldSetId, #myRelationWithListId {
+	
+	.x-list-item {
+		//@include background-image(linear-gradient(#303030, #303030));
+		border: 1px 0px 0px 0px solid white !important;
+	}
+	
+	.x-list-item.x-item-selected.x-list-item-tpl {
+		@include background-image(linear-gradient(#FF0000, #E00000, #FF0000));
+		
+		h2, h3, p {
+			color: white;
+		}
+	}
+}
+
+.buttonColor {
+	font-family: 'Tweamy' !important;
+	color: $apple-blue !important;
+	font-size: 1.2em;
+}
+
+.buttonPswReset {
+	color: $apple-blue !important;
+	font-size: 0.8em !important;
+}
+
+#teamMemberListToolbar {
+	
+	.x-button .x-button-label {
+			color: #F8F8F8 !important;
+			font-size: 0.9em !important;
+			font-family: 'Tweamy2' !important;
+			margin: 0em 0em 0.1em 0em;
+			-webkit-font-smoothing: antialiased;
+			
+			sub {
+				font-size: 0.7em !important;
+			}
+	}
+}
+
+.x-panel {
+	
+//	&.x-floating .x-dock.x-sized {
+		//margin: 4px !important;  
+//		background-color: $apple-yellow !important;
+		
+//	}
+	&.x-floating {
+		padding: 4px !important;  
+		background-color: $apple-yellow !important;
+		
+	}
+	&.x-floating .x-inner.x-panel-inner {
+		@include border-radius(2px);
+	}
+	
+}
+
+.x-toolbar-dark {
+
+	&.x-toolbar {
+		background-color: #d4d7df !important;
+		@include background-image(linear-gradient(#f0f2f5, #d4d7df, #d2d4da));
+	}
+	
+	&.x-docked-top {
+		border-bottom-color: #798191 !important;
+	}
+	
+	.x-title {
+		color: rgba(114, 119, 128, 0.8) !important;
+		text-shadow: 1px 4px 6px #d4d7df, 0 0 0 #000, 1px 4px 6px #d4d7df !important;
+	}
+	
+	
+	
+}
+
+#introNavigationBarId {
+	
+	.x-button-label {
+		line-height: 2em;
+		color: $apple-blue !important;
+		font-family: 'Tweamy' !important;
+		//margin: 0em !important;
+		-webkit-font-smoothing: antialiased;
+		
+		font-size: 0.9em !important;
+		//margin: 1em 0em 0em 0em !important;
+
+		.icn {
+			float: right;
+			margin: 0.15em 0em 0em 0em !important;
+			font-size: 1em !important;
+		}
+	}
+	
+	
+	.x-button-pressing, .x-button-pressed {
+		background-color: none !important;
+		background-image: none !important;
+		
+		.x-button-label {
+			color: #e0e0e0 !important; 
+		}
+	}
+}
+
+.x-button-normal.x-button.x-layout-box-item.x-stretched {
+	background-color: #788288 !important;
+	@include background-image(linear-gradient(#afb3b9, #788288, #6c737e));
+	
+	border: 1px solid #788288;
+	
+	@include box-shadow(rgba(white, 0.4) 0 0 25px, rgba(black, 0.2) 0 0 3px 1px inset);
+}
+
+.teamMember-wrapper {
+	h2 {
+		float: left;
+		margin: 0em 0em 0em 0.8em;
+		color: #101010;
+		font-weight: bold;
+	}
+		
+	img {
+		width: 2em;
+		height: 2em;
+		float: left;
+		margin: -0.45em 0em 0em 0em;
+		background-color: #E8E8E8;
+	}	
+}
+
+#titlebarMemberImageId {
+	
+	.x-button .x-button-icon.tw-info:before {
+			color: $apple-blue;
+			font-size: 1.3em !important;
+			font-family: 'Tweamy2' !important;
+			
+			content: "\e029" !important;
+			margin: 0em !important;
+			padding: 0 0 0 0.05em !important;
+			text-align: right;
+	}
+	
+	.x-button-pressing, .x-button-pressed {
+		background-color: none !important;
+		background-image: none !important;
+		
+		.x-button-icon:before {
+			color: #e0e0e0 !important; 
+		}
+	}
+}
+
+#showUserProfile {
+	
+	.x-button-icon.tw-menu:before {
+			color: $apple-blue;
+			font-size: 1.4em !important;
+			font-family: 'Tweamy2' !important;
+			
+			content: "\e025" !important;
+			margin: 0em !important;
+			padding: 0em !important;
+			text-align: center;
+	}
+	
+	.x-button-pressing, .x-button-pressed {
+		background-color: none !important;
+		background-image: none !important;
+		
+		.x-button-icon:before {
+			background-color: red;
+			color: white !important; 
+		}
+	}
+}
+
+.sliderextended {
+	
+	height: 2em;
+	background-color: tint(#f8f8f8, 5%);
+	
+	.labelAbove {
+		margin-top: -2.95em;
+		font-size: 0.6em;
+		
+		color: $apple-red !important;
+		
+		@include display-box;
+		@include box-orient(horizontal);
+		@include box-align(stretch);
+		
+		.part {
+			@include box-flex(1);
+			
+		}
+	}
+	.x-inner {
+		
+		.x-slider {
+			margin-top: 0.2em !important;
+			font-size: 0.5em !important;
+		}
+		
+		.x-form-label {
+			border: none !important;
+			font-size: 1.1em !important;
+			margin-top: -0.4em !important;
+		}
+	}
+}
+
+
+.teamMemberList-wrapper {
+	h2 {
+		float: left;
+		margin: 0em 0em 0em 0.8em;
+		color: #101010;
+		font-weight: bold !important;
+		
+		span {
+			float: right;
+			color: #FFA000;
+			font-family: 'Tweamy2';
+			font-size: 0.5em;
+		}
+	}
+		
+	img {
+		width: 2em;
+		height: 2em;
+		float: left;
+		margin: -0.45em 0em 0em 0em;
+		background-color: #E8E8E8;
+	}	
+}
+
+.team-wrapper {
+	h3 {
+		color: #101010;
+		float: left;
+	    line-height: 1.4em;
+	    margin: -0.5em 0em 0em 1em;
+	    width: 75%;
+		font-weight: bold;
+		
+		span {
+			float: right;
+			color: #FFA000;
+			font-family: 'Tweamy';
+			font-size: 0.7em;
+		}
+	}
+	p {
+		color: #303030;
+	    float: left;
+	    font-size: .7em;
+	    line-height: 1em;
+	    margin: 0em 0em 0em 1.5em;
+	    width: 45%;
+	}
+	img {
+	    width: 2em;
+	    height: 2em;
+	    float: left;
+		margin: -0.45em 0em 0em 0em;
+		background-color: #E8E8E8;
+	}
+}
+
+.other-wrapper {
+	color: #101010;
+	
+	h2 {
+		float: left;
+		margin: 0em 0em 0em 0.8em;
+	}
+	
+	p{
+		float: right;
+		color: green;
+		font-family: 'Tweamy2';
+	}
+}
+
+.list-divider {
+	height: 1.5em;
+	
+	.x-label {
+		color: #F8F8F8;
+		font-size: 0.9em;
+	}
+	
+	.x-button .x-button-icon.tw-plus:before {
+			color: $apple-blue !important; // was #F8F8F8
+			font-size: 0.9em !important;
+			font-family: 'Tweamy2' !important;
+			content: "\e033" !important;
+			margin: 0em 0em 0em 0.5em;
+	}
+	
+	border: 1px 0px 0px 0px solid white !important;
+	
+	@include background-image(linear-gradient(#505050, #282828, #505050));
+}
+
+.stretched {
+	border: 1px solid #d8d8d8;
+	border-bottom: 2px solid #ccc;
+	@include border-radius(2px);
+	display: block;
+	background-color: tint(#f8f8f8, 5%);
+	color: #101010;
+
+	padding: 1em;
+
+}
+ 
+ 
+#stretch-offset {
+	@extend .stretched;
+	@include stretch(1em, 1em, 1em, 1em); 
+	
+	h1 {
+		font-size: 1.5em !important;
+		font-weight:bold !important;
+	}
+	
+	h2 {
+		font-weight:bold !important;
+	}
+	
+	ul {
+		//margin: 1em; 
+		//padding: 0em;
+		list-style: none;
+		
+		li {
+			border-top: 1px solid #d8d8d8;
+			border-bottom: 1px solid #d8d8d8;
+			padding: 0.5em;
+		}
+
+		li:first-child {
+			border-top: none;
+			padding: 0.5em;
+		}
+
+		li:last-child {
+			border-bottom: none;
+			padding: 0.5em;
+		}
+	}
+	
+}
+
+#extraTermsId {
+	
+	font-size: 80% !important;
+	
+	.x-toggle {
+		height: 1.5em;
+		width: 2.5em;
+	}
+	
+	.x-thumb:after {
+		height: 1.2em !important;
+		width: 1.2em !important;
+	}
+	
+	div.style {
+		@include translate3d(15px, -1.5px, 0px);
+	}
+	
+	.extraTermsLbl {
+		margin: 0.5em 0em 0em 1.5em;
+		font-size: 80%;
+	}
+}
+
+.playground {
+	border: 1px solid #c0c0c0;
+	
+	@include background-image(image-url('/www/tweamy/resources/images/canvas.png'));
+	
+	background-color:#269;
+	background-image: linear-gradient(white 2px, transparent 2px),
+	linear-gradient(90deg, white 2px, transparent 2px),
+	linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+	linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+	background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+	background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+}
+
+.playground-bottom {
+	border: 1px solid #c0c0c0;
+	
+	@include background-image(linear-gradient(white, #cccccc, #aaaaaa));
+	
+	
+	
+	//height: 150px !important;
+	width: 1024px !important;
+	
+
+}
+
+.empty-detailed {
+	border: 1px solid #ccc;
+	
+	@include background-image(linear-gradient(white, #e8e8e8 5%, #e8e8e8 95%, white));
+	
+	img {
+		@include opacity(0.2);
+	}
+}
+
+.detailed {
+	border: 1px solid #ccc;
+	
+	.x-panel-inner {
+		@include background-image(linear-gradient(white, #e8e8e8 5%, #e8e8e8 95%, white));
+	}
+	
+	.x-form-label, .x-field {
+		@include opacity(0.8);
+		background: none !important;
+	}
+	
+	element.style {
+		transform: translate3d(30px, -1.5px, 0px);
+	}
+}
+
+
+.error-indication {
+	border: 1px solid #f00000 !important;
+	border-bottom: 1px solid #800000 !important;
+	border-radius: 4px !important;
+}
+
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="twy-"] {
+*/
+.twy-home, .twy-home-2, .twy-home-3, .twy-office, .twy-newspaper, .twy-image, .twy-image-2, .twy-images, .twy-camera, .twy-library, .twy-cart, .twy-cart-2, .twy-cart-3, .twy-credit, .twy-envelop, .twy-user, .twy-users, .twy-user-2, .twy-users-2, .twy-user-3, .twy-user-4, .twy-spinner, .twy-search, .twy-zoom-in, .twy-zoom-out, .twy-key, .twy-lock, .twy-lock-2, .twy-unlocked, .twy-cog, .twy-cogs, .twy-cog-2, .twy-remove, .twy-remove-2, .twy-list, .twy-list-2, .twy-numbered-list, .twy-menu, .twy-notification, .twy-warning, .twy-question, .twy-info, .twy-info-2, .twy-blocked, .twy-cancel-circle, .twy-checkmark-circle, .twy-spam, .twy-close, .twy-checkmark, .twy-checkmark-2, .twy-minus, .twy-plus, .twy-loop, .twy-checkbox-checked, .twy-checkbox-unchecked, .twy-checkbox-partial, .twy-radio-checked, .twy-radio-unchecked, .twy-mail, .twy-mail-2, .twy-mail-3, .twy-mail-4, .twy-file-pdf, .twy-file-excel, .twy-star, .twy-star-2, .twy-star-3, .twy-target, .twy-accessibility, .twy-paypal, .twy-paypal-2, .twy-paypal-3, .twy-undo, .twy-redo, .twy-arrow-right, .twy-arrow-left, .twy-arrow-down-right, .twy-arrow-down, .twy-arrow-down-left, .twy-arrow-up-left, .twy-arrow-up-right, .twy-arrow-up, .twy-arrow-up-left-2, .twy-arrow-up-2, .twy-arrow-up-right-2, .twy-arrow-right-2, .twy-arrow-down-right-2, .twy-arrow-down-2, .twy-arrow-down-left-2, .twy-arrow-left-2, .twy-eye {
+	font-family: 'Tweamy2';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.twy-home:before {
+	content: "\e000";
+}
+.twy-home-2:before {
+	content: "\e001";
+}
+.twy-home-3:before {
+	content: "\e002";
+}
+.twy-office:before {
+	content: "\e003";
+}
+.twy-newspaper:before {
+	content: "\e004";
+}
+.twy-image:before {
+	content: "\e005";
+}
+.twy-image-2:before {
+	content: "\e006";
+}
+.twy-images:before {
+	content: "\e007";
+}
+.twy-camera:before {
+	content: "\e008";
+}
+.twy-library:before {
+	content: "\e009";
+}
+.twy-cart:before {
+	content: "\e00a";
+}
+.twy-cart-2:before {
+	content: "\e00b";
+}
+.twy-cart-3:before {
+	content: "\e00c";
+}
+.twy-credit:before {
+	content: "\e00d";
+}
+.twy-envelop:before {
+	content: "\e00e";
+}
+.twy-user:before {
+	content: "\e00f";
+}
+.twy-users:before {
+	content: "\e010";
+}
+.twy-user-2:before {
+	content: "\e011";
+}
+.twy-users-2:before {
+	content: "\e012";
+}
+.twy-user-3:before {
+	content: "\e013";
+}
+.twy-user-4:before {
+	content: "\e014";
+}
+.twy-spinner:before {
+	content: "\e015";
+}
+.twy-search:before {
+	content: "\e016";
+}
+.twy-zoom-in:before {
+	content: "\e017";
+}
+.twy-zoom-out:before {
+	content: "\e018";
+}
+.twy-key:before {
+	content: "\e019";
+}
+.twy-lock:before {
+	content: "\e01a";
+}
+.twy-lock-2:before {
+	content: "\e01b";
+}
+.twy-unlocked:before {
+	content: "\e01c";
+}
+.twy-cog:before {
+	content: "\e01d";
+}
+.twy-cogs:before {
+	content: "\e01e";
+}
+.twy-cog-2:before {
+	content: "\e01f";
+}
+.twy-remove:before {
+	content: "\e020";
+}
+.twy-remove-2:before {
+	content: "\e021";
+}
+.twy-list:before {
+	content: "\e022";
+}
+.twy-list-2:before {
+	content: "\e023";
+}
+.twy-numbered-list:before {
+	content: "\e024";
+}
+.twy-menu:before {
+	content: "\e025";
+}
+.twy-notification:before {
+	content: "\e026";
+}
+.twy-warning:before {
+	content: "\e027";
+}
+.twy-question:before {
+	content: "\e028";
+}
+.twy-info:before {
+	content: "\e029";
+}
+.twy-info-2:before {
+	content: "\e02a";
+}
+.twy-blocked:before {
+	content: "\e02b";
+}
+.twy-cancel-circle:before {
+	content: "\e02c";
+}
+.twy-checkmark-circle:before {
+	content: "\e02d";
+}
+.twy-spam:before {
+	content: "\e02e";
+}
+.twy-close:before {
+	content: "\e02f";
+}
+.twy-checkmark:before {
+	content: "\e030";
+}
+.twy-checkmark-2:before {
+	content: "\e031";
+}
+.twy-minus:before {
+	content: "\e032";
+}
+.twy-plus:before {
+	content: "\e033";
+}
+.twy-loop:before {
+	content: "\e034";
+}
+.twy-checkbox-checked:before {
+	content: "\e035";
+}
+.twy-checkbox-unchecked:before {
+	content: "\e036";
+}
+.twy-checkbox-partial:before {
+	content: "\e037";
+}
+.twy-radio-checked:before {
+	content: "\e038";
+}
+.twy-radio-unchecked:before {
+	content: "\e039";
+}
+.twy-mail:before {
+	content: "\e03a";
+}
+.twy-mail-2:before {
+	content: "\e03b";
+}
+.twy-mail-3:before {
+	content: "\e03c";
+}
+.twy-mail-4:before {
+	content: "\e03d";
+}
+.twy-file-pdf:before {
+	content: "\e03e";
+}
+.twy-file-excel:before {
+	content: "\e03f";
+}
+.twy-star:before {
+	content: "\e040";
+}
+.twy-star-2:before {
+	content: "\e041";
+}
+.twy-star-3:before {
+	content: "\e042";
+}
+.twy-target:before {
+	content: "\e043";
+}
+.twy-accessibility:before {
+	content: "\e044";
+}
+.twy-paypal:before {
+	content: "\e045";
+}
+.twy-paypal-2:before {
+	content: "\e046";
+}
+.twy-paypal-3:before {
+	content: "\e047";
+}
+.twy-undo:before {
+	content: "\e048";
+}
+.twy-redo:before {
+	content: "\e049";
+}
+.twy-arrow-right:before {
+	content: "\e04a";
+}
+.twy-arrow-left:before {
+	content: "\e04b";
+}
+.twy-arrow-down-right:before {
+	content: "\e04c";
+}
+.twy-arrow-down:before {
+	content: "\e04d";
+}
+.twy-arrow-down-left:before {
+	content: "\e04e";
+}
+.twy-arrow-up-left:before {
+	content: "\e04f";
+}
+.twy-arrow-up-right:before {
+	content: "\e050";
+}
+.twy-arrow-up:before {
+	content: "\e051";
+}
+.twy-arrow-up-left-2:before {
+	content: "\e052";
+}
+.twy-arrow-up-2:before {
+	content: "\e053";
+}
+.twy-arrow-up-right-2:before {
+	content: "\e054";
+}
+.twy-arrow-right-2:before {
+	content: "\e055";
+}
+.twy-arrow-down-right-2:before {
+	content: "\e056";
+}
+.twy-arrow-down-2:before {
+	content: "\e057";
+}
+.twy-arrow-down-left-2:before {
+	content: "\e058";
+}
+.twy-arrow-left-2:before {
+	content: "\e059";
+}
+.twy-eye:before {
+	content: "\e05a";
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-tw-"] {
+*/
+.icon-tw-info, .icon-tw-info-2, .icon-tw-list, .icon-tw-checkmark, .icon-tw-cross, .icon-tw-cart, .icon-tw-user-add, .icon-tw-users, .icon-tw-user, .icon-tw-cross-2, .icon-tw-minus, .icon-tw-plus, .icon-tw-blocked, .icon-tw-erase, .icon-tw-question, .icon-tw-help, .icon-tw-warning, .icon-tw-cycle, .icon-tw-cw, .icon-tw-ccw, .icon-tw-arrow-down, .icon-tw-arrow-up, .icon-tw-arrow-right, .icon-tw-arrow-left, .icon-tw-arrow-left-2, .icon-tw-arrow-down-2, .icon-tw-arrow-up-2, .icon-tw-arrow-right-2, .icon-tw-arrow-left-3, .icon-tw-arrow-down-3, .icon-tw-arrow-up-3, .icon-tw-untitled, .icon-tw-arrow-left-4, .icon-tw-arrow-down-4, .icon-tw-arrow-up-4, .icon-tw-arrow-right-3, .icon-tw-minus-2, .icon-tw-plus-2, .icon-tw-cross-3, .icon-tw-minus-3, .icon-tw-plus-3, .icon-tw-camera, .icon-tw-mail, .icon-tw-house, .icon-tw-cog, .icon-tw-list-2 {
+	font-family: 'Tweamy';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-tw-info:before {
+	content: "\e000";
+}
+.icon-tw-info-2:before {
+	content: "\e001";
+}
+.icon-tw-list:before {
+	content: "\e002";
+}
+.icon-tw-checkmark:before {
+	content: "\e003";
+}
+.icon-tw-cross:before {
+	content: "\e004";
+}
+.icon-tw-cart:before {
+	content: "\e005";
+}
+.icon-tw-user-add:before {
+	content: "\e006";
+}
+.icon-tw-users:before {
+	content: "\e007";
+}
+.icon-tw-user:before {
+	content: "\e008";
+}
+.icon-tw-cross-2:before {
+	content: "\e009";
+}
+.icon-tw-minus:before {
+	content: "\e00a";
+}
+.icon-tw-plus:before {
+	content: "\e00b";
+}
+.icon-tw-blocked:before {
+	content: "\e00c";
+}
+.icon-tw-erase:before {
+	content: "\e00d";
+}
+.icon-tw-question:before {
+	content: "\e00e";
+}
+.icon-tw-help:before {
+	content: "\e00f";
+}
+.icon-tw-warning:before {
+	content: "\e010";
+}
+.icon-tw-cycle:before {
+	content: "\e011";
+}
+.icon-tw-cw:before {
+	content: "\e012";
+}
+.icon-tw-ccw:before {
+	content: "\e013";
+}
+.icon-tw-arrow-down:before {
+	content: "\e014";
+}
+.icon-tw-arrow-up:before {
+	content: "\e015";
+}
+.icon-tw-arrow-right:before {
+	content: "\e016";
+}
+.icon-tw-arrow-left:before {
+	content: "\e017";
+}
+.icon-tw-arrow-left-2:before {
+	content: "\e018";
+}
+.icon-tw-arrow-down-2:before {
+	content: "\e019";
+}
+.icon-tw-arrow-up-2:before {
+	content: "\e01a";
+}
+.icon-tw-arrow-right-2:before {
+	content: "\e01b";
+}
+.icon-tw-arrow-left-3:before {
+	content: "\e01c";
+}
+.icon-tw-arrow-down-3:before {
+	content: "\e01d";
+}
+.icon-tw-arrow-up-3:before {
+	content: "\e01e";
+}
+.icon-tw-untitled:before {
+	content: "\e01f";
+}
+.icon-tw-arrow-left-4:before {
+	content: "\e020";
+}
+.icon-tw-arrow-down-4:before {
+	content: "\e021";
+}
+.icon-tw-arrow-up-4:before {
+	content: "\e022";
+}
+.icon-tw-arrow-right-3:before {
+	content: "\e023";
+}
+.icon-tw-minus-2:before {
+	content: "\e024";
+}
+.icon-tw-plus-2:before {
+	content: "\e025";
+}
+.icon-tw-cross-3:before {
+	content: "\e026";
+}
+.icon-tw-minus-3:before {
+	content: "\e027";
+}
+.icon-tw-plus-3:before {
+	content: "\e028";
+}
+.icon-tw-camera:before {
+	content: "\e029";
+}
+.icon-tw-mail:before {
+	content: "\e02a";
+}
+.icon-tw-house:before {
+	content: "\e02b";
+}
+.icon-tw-cog:before {
+	content: "\e02c";
+}
+.icon-tw-list-2:before {
+	content: "\e02d";
+}
+

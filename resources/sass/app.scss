@@ -1,0 +1,970 @@
+/*
+* @name app scss
+* @version 1.0
+*
+* app.scss
+*
+* Copyright (c) 2013 Wizin
+*
+* @description <p></p>
+*
+* Design and Implementation
+* 
+* @author <a href="mailto:stefan.ten.cate@triplemit.nl">Stefan ten Cate</a>
+* @company <a href="http://triplemit.nl">Triple M IT</a>
+*
+*
+* Permission is hereby granted, free of charge, to any person
+* obtaining a copy of this software and associated documentation
+* files (the "Software"), to deal in the Software without
+* restriction, including without limitation the rights to use,
+* copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the
+* Software is furnished to do so, subject to the following
+* conditions:
+* 
+* The above copyright notice and this permission notice shall be
+* included in all copies or substantial portions of the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+* OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+* OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+/**
+ *
+ *
+ */
+@import 'compass';
+@import 'compass/layout/stretching';
+
+
+@mixin icon-font($name, $font-files, $eot: false) {
+    @include font-face($name, $font-files, $eot);
+
+    .x-tab .x-button-icon,
+    .x-button .x-button-icon {
+        &:before {
+            font-family: $name;
+        }
+    }
+}
+
+@mixin text3D($color) {
+  color: $color; 
+  text-shadow:
+    2px 0 0 darken($color, 14%),
+    4px 0 0 darken($color, 16%),
+    6px 0 0 darken($color, 18%),
+    8px 0 0 darken($color, 20%),
+    3px 8px 15px rgba(0,0,0,0.1),
+    3px 8px 5px rgba(0,0,0,0.3);
+}
+
+/**
+ * Tool tip
+ **/
+$tooltip-bg-color: rgb(240, 239, 245);
+
+
+@mixin ux-tooltip {
+  .ux-tooltip {
+    background-color: $tooltip-bg-color;
+    -webkit-border-radius: 0.3em;
+    -webkit-box-shadow: -5px -5px 5px 5px rgba(0,0,0,0.3);
+
+    .x-anchor {
+      background-color: $tooltip-bg-color;
+    }
+
+    .ux-tooltip-inner {
+      background-color: $tooltip-bg-color;
+      color: #ffffff;
+      font-size: 14px;
+      -webkit-border-radius: 0.3em;
+      margin: 4px;
+
+    }
+  }
+
+
+}
+// Fonts
+@include icon-font('Pictos', inline-font-files('pictos/pictos-web.woff', woff, 'pictos/pictos-web.ttf', truetype,'pictos/pictos-web.svg', svg));
+@include icon-font('Tweamy', inline-font-files('tweamy/Tweamy.woff', woff, 'tweamy/Tweamy.ttf', truetype, 'tweamy/Tweamy.svg', svg));
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+$font-family: 'Tweamy', 'Pictos', 'Droid Sans' !important;
+
+// Color definitions
+$apple-blue: rgb(1, 124, 254);
+$APPLE-BLUE: #017CFE;
+$apple-blue-light: rgb(90, 198, 255);
+$apple-red: rgb(255, 62, 62);
+$apple-orange: rgb(246, 135, 17); 
+$APPLE-ORANGE: #F68711;
+$apple-yellow: rgb(255, 224, 0);
+$apple-green: rgb(58, 196, 0);
+$apple-black: rgb(31, 31, 31);
+$apple-black2: rgb(43, 43, 43);
+$apple-grey: rgb(188, 189, 193);
+$apple-grey2: rgb(148, 149, 153);
+$APPLE-GREY: #BCBDC1;
+$apple-purple: rbg(150, 61, 151);
+
+$apple-background-color: rgb(240, 239, 245);
+
+$size: 25rem;
+
+.x-img.x-img-background { 
+	max-width: 100% !important;
+	background-size: 100% 100%;
+}
+
+.imgGallery {
+	
+	margin: 5px;
+	padding: 5px;
+	border: 2px solid $apple-red;
+	@include border-radius(4px);
+	
+	float: left;
+	height: 150px;
+	width: 150px;
+	
+	img  {
+		height: 80%;
+		width: 80%;
+		background-size: 100% 100%;
+	}
+	
+	p {
+		
+		text-align: center;
+	}
+}
+#teamMemberListId, #teamListId, #otherListId, #teamMembersFieldSetId, #myRelationWithListId {
+	
+	.x-list-item {
+		//@include background-image(linear-gradient(#303030, #303030));
+		border: 1px 0px 0px 0px solid white !important;
+	}
+	
+	.x-list-item.x-item-selected.x-list-item-tpl {
+		@include background-image(linear-gradient(#FF0000, #E00000, #FF0000));
+		
+		h2, h3, p {
+			color: white;
+		}
+	}
+}
+
+#playground {
+	border: 1px solid #c0c0c0;
+	
+	//@include background(image-url('http://localhost:8000/resources/images/canvas.png'));
+
+}
+
+.imageFontClass {
+	color: $apple-orange;
+	font-size: 1.4em !important;
+	font-family: 'Tweamy' !important;
+	
+	padding-top: 0.5em !important;
+}
+
+#btnTweamyMenuId {
+	color: $apple-blue;
+	font-size: 1.4em !important;
+	font-family: 'Tweamy' !important;
+	
+	content: "\e01d" !important;
+	margin: 0em !important;
+	padding: 0em !important;
+	text-align: center;
+}
+
+#extraTermsId {
+	
+	font-size: 80% !important;
+	
+	.extraTermsLbl {
+		margin: 0.5em 0em 0em 1.5em;
+		font-size: 80%;
+	}
+}
+
+/** 
+ * Button adjustment
+ */
+#cameraId, #albumId, #readyToUseId, #titlebarMemberImageId, #detailedTeamMemberInfoToolbarId, #passwordResetId, #saveChgTeammemberId,
+#teamMemberListToolbar, #addNewTeamToolbarId, #saveChangeTeamId, #teamMemberListToolbar {
+	
+	.x-button-icon, .x-button-label {
+		color: $apple-blue;
+	}
+	
+	.x-button-label {
+			color: $apple-blue;
+			font-size: 1em;
+	}
+	
+	.x-button-pressing, .x-button-pressed {
+		background-color: none !important;
+		background-image: none !important;
+		
+		.x-button-icon:before,  .x-button-label {
+			color: $apple-grey !important; 
+		}
+	}
+}
+
+// tab bar adjustment
+#detTeamMemberInfoToolbarBottomId {
+	
+	.x-button-icon {
+		font-size: 0.8em;
+		color: $apple-blue;
+		margin-top: -0.25em;
+	}
+	
+	.x-button-label {
+			color: $apple-blue;
+			font-size: 0.6em;
+	}
+	
+	.x-button-pressing, .x-button-pressed {
+		background-color: none !important;
+		background-image: none !important;
+		
+		.x-button-icon:before,  .x-button-label {
+			color: $apple-grey !important; 
+		}
+	}
+	
+	border-top: 1px solid #ccc !important;
+}
+
+#titlebarMemberImageId, #imageInfoTitlebarId, #relDefId, #detailedTeamMemberInfoToolbarId, #detTeamMemberInfoToolbarBottomId, #teamMemberListToolbar,
+#imageGalleryToolbarlId, #addNewTeamToolbarId, #aboutTweamyToolbarId, #helpToolbarId, #termsToolbarId, #settingsPanelToolbarId {
+		
+		background-color: #d4d7df !important;
+		@include background-image(linear-gradient(#f0f2f5, #d4d7df, #d2d4da));
+		
+		.x-title {
+			color: $apple-black2 !important;
+			font-weight: normal;
+			font-size: 1.2em;
+			text-shadow: 1px 4px 6px #d4d7df, 0 0 0 #000, 1px 4px 6px #d4d7df !important;
+		}
+		
+		border-bottom-color: #ccc !important;
+}
+
+//#teamMemberListToolbar {
+	
+//	.x-button .x-button-label {
+//			color: #F8F8F8 !important;
+//			font-size: 0.9em !important;
+//			font-family: 'Tweamy' !important;
+//			margin: 0em 0em 0.1em 0em;
+			
+//			sub {
+//				font-size: 0.7em !important;
+//			}
+//	}
+//}
+
+#userPanelLeftId {
+	
+	.x-dock.x-sized {
+		margin: 0px !important;
+	}
+	
+	background-color: $apple-background-color !important;
+	@include background-image($apple-background-color);
+}
+
+.extraTermsLbl {
+	margin: 0.5em 0em 0em 1.5em;
+	font-size: 80%;
+}
+
+
+/**
+ * Toggle field
+ * Change background to apple green color
+ */
+.x-toggle-on {
+	background-color: $apple-green !important;
+	@include background-image(linear-gradient(top, $apple-green, $apple-green 3%,rgba($apple-green, 0.5)));
+}
+.x-thumb:after {
+		width: 2em !important;
+		height: 2em !important;
+		
+		margin: -0.15em 0em 0em 0em;
+		@include background-image(linear-gradient(top, white, white 3%,rgba(white, 0.5)));
+		border: 1px solid $apple-grey;
+}
+	
+.x-mask {
+
+	.x-mask-inner {
+		background: none !important;
+	}
+	
+	.x-mask-message {
+		color: $apple-black2 !important;
+		font-weight: normal;
+		font-size: 1.5em;
+	}
+}
+
+.x-carousel-indicator {
+	
+	span.x-carousel-indicator-active {
+	
+		background-color: $apple-blue !important;
+		margin-top: 0.6em !important;
+	}
+}
+.x-carousel-indicator-dark span {
+	margin-top: 0.6em !important;
+	background-color: rgba($apple-blue, .4) !important;
+}
+
+/**
+ * Panel adjustments
+ */
+
+.x-panel {
+	
+	
+	&.x-floating {
+		padding: 0px !important;  
+		background-color: $apple-yellow !important;
+		
+		
+		.x-dock.x-sized {
+			margin: 0px !important;
+		}
+	}
+	&.x-floating .x-panel-inner {
+		//padding: 3px !important;
+		@include border-radius(2px);
+		background-color: $apple-background-color !important;
+		@include background-image(rgba($apple-background-color, 0.5));
+	}
+	
+	.x-title {
+		color: $apple-black !important;
+	}
+}
+
+/**
+ * Segmented button adjustments
+ */
+.x-segmentedbutton {
+	
+	.x-button-label {
+		font-weight: normal !important;
+		font-size: 0.9em;
+	}
+	.x-button {
+		background: none !important;
+		color: $apple-blue;
+		border: 1px solid $apple-blue;
+	}
+	
+	.x-button-pressed {
+		color: white;
+		background-color: $apple-blue !important;
+		@include background-image($apple-blue);
+	}
+}
+
+.teamMember-wrapper {
+	
+	h2 {
+		float: left;
+		margin: 0em 0em 0em 0.8em;
+		color: #101010;
+		font-weight: bold;
+	}
+		
+	img {
+		width: 2em;
+		height: 2em;
+		float: left;
+		margin: -0.6em 0em 0em 0em;
+		background-color: none;
+	}	
+}
+
+.team-wrapper {
+	h3 {
+		color: $apple-black;
+		float: left;
+	    line-height: 1.4em;
+	    margin: -0.5em 0em 0em 1em;
+	    width: 75%;
+		font-weight: bold;
+		
+		sup {
+			//float: left;
+			color: shade($apple-yellow, 20%);
+			font-family: 'Tweamy';
+			font-size: 0.7em;
+			margin-top: -1em !important;
+			padding-left: 0.25em;
+		}
+	}
+
+	p {
+		color: tint($apple-black, 25%);
+	    float: left;
+	    font-size: .7em;
+	    line-height: 1em;
+	    margin: -0.25em 0em 0em 1.6em;
+	    width: 45%;
+	}
+	span {
+		color: $apple-orange;
+		font-family: 'Tweamy';
+		font-size: 1.5em;
+	    float: left;
+		margin-bottom: 0.5em;
+	}
+}
+
+.sliderextended {
+	
+	height: 2em;
+	background-color: tint(#f8f8f8, 5%);
+	
+	.labelAbove {
+		margin-top: -2.95em;
+		font-size: 0.6em;
+		
+		color: $apple-red !important;
+		
+		@include display-box;
+		@include box-orient(horizontal);
+		@include box-align(stretch);
+		
+		.part {
+			@include box-flex(1);
+			
+		}
+	}
+	.x-inner {
+		
+		.x-slider {
+			margin-top: 0.2em !important;
+			font-size: 0.5em !important;
+		}
+		
+		.x-form-label {
+			border: none !important;
+			font-size: 1.0em !important;
+			margin-top: -0.4em !important;
+		}
+	}
+	
+	.x-slider:before {
+		height: 0.2em;
+	}
+}
+
+
+.teamMemberList-wrapper {
+	h2 {
+		float: left;
+		margin: 0em 0em 0em 0.8em;
+		color: #101010;
+		font-weight: bold !important;
+		
+		span {
+			float: right;
+			color: #FFA000;
+			font-family: 'Tweamy';
+			font-size: 0.5em;
+		}
+	}
+		
+	img {
+		width: 2em;
+		height: 2em;
+		float: left;
+		margin: -0.45em 0em 0em 0em;
+		background-color: #E8E8E8;
+	}	
+}
+
+.other-wrapper {
+	color: #101010;
+	
+	h2 {
+		float: left;
+		margin: 0em 0em 0em 0.8em;
+	}
+	
+	p{
+		float: right;
+		color: $apple-green;
+		font-family: 'Tweamy';
+	}
+}
+
+.list-divider {
+	height: 2em;
+	
+	.x-label {
+		color: $apple-grey2;
+		//font-weight: bold;
+		font-size: 1em;
+		margin: 0.25em 0em 0em 0em !important;
+	}
+	
+	.x-button .x-button-icon {
+		color: $apple-blue !important; // was #F8F8F8
+		font-size: 1.25em !important;
+		font-family: 'Tweamy' !important;
+		margin: 0em 0em 0em 0.5em !important;
+	}
+	.x-button-pressing, .x-button-pressed {
+		background-color: none !important;
+		background-image: none !important;
+	
+		.x-button-icon:before {
+			color: $apple-grey !important; 
+		}
+	}
+	
+	
+	//border: 1px 0px 0px 0px solid white !important;
+	
+//	@include background-image(linear-gradient(#505050, #282828, #505050));
+	background-color: $apple-background-color !important;
+	@include background-image($apple-background-color);
+}
+
+.stretched {
+	border: 1px solid #d8d8d8;
+	border-bottom: 2px solid #ccc;
+	@include border-radius(2px);
+	display: block;
+	background-color: tint(#f8f8f8, 5%);
+	color: #101010;
+
+	padding: 1em;
+	overflow: scroll !important;
+}
+ 
+ 
+#stretch-offset {
+	@extend .stretched;
+	@include stretch(1em, 1em, 1em, 1em); 
+	
+	color: #787878;
+	text-shadow: rgba(white, 1) 0 1px 0;
+	h1 {
+		font-size: 1.5em !important;
+		font-weight: bold !important;
+		text-align: center;
+	}
+	
+	h2 {
+		text-align: center;
+		font-weight:bold !important;
+	}
+	
+	ul {
+		text-align: justify;
+
+		list-style: none;
+		font-size: 0.8em !important;
+		li {
+			border-top: 1px solid #d8d8d8;
+			border-bottom: 1px solid #d8d8d8;
+			padding: 0.5em;
+		}
+
+		li:first-child {
+			border-top: none;
+			padding: 0.5em;
+		}
+
+		li:last-child {
+			border-bottom: none;
+			padding: 0.5em;
+		}
+	}
+	
+}
+.x-msgbox {
+	border: 2px solid $apple-yellow !important;
+	
+	background-color: $apple-background-color !important;
+	@include background-image($apple-background-color);
+	
+	.x-innerhtml {
+		color: $apple-black !important;
+	}
+	
+	.x-toolbar-dark.x-toolbar {
+		
+		background-color: $apple-background-color !important;
+		@include background-image($apple-background-color);
+	}
+
+	.x-toolbar-dark.x-toolbar:last-child {
+		margin-top: 1em;
+		background-color: $apple-background-color !important;
+		@include background-image($apple-background-color);
+		border-top: 1px solid $apple-grey;
+	}
+	
+	.x-button.x-button-action {
+		background: none !important;
+		color: $apple-blue;
+		font-size: 1.5em;
+		border: none; //1px solid $apple-blue;
+	}
+}
+
+.empty-detailed {
+	border-left: 1px solid #ccc;
+	
+	@include background-image($apple-background-color);
+	
+	img {
+		@include opacity(0.2);
+	}
+}
+
+.detailed {
+	border-left: 1px solid #ccc;
+	
+//	.x-panel-inner {
+//		@include background-image(linear-gradient(white, #e8e8e8 5%, #e8e8e8 95%, white));
+//	}
+	
+//	.x-form-label, .x-field {
+//		@include opacity(0.8);
+//		background: none !important;
+//	}
+	
+//	element.style {
+//		transform: translate3d(30px, -1.5px, 0px);
+//	}
+}
+
+.error-indication {
+	
+	:first-child {
+		@include border-top-radius(0.4em);
+	}
+	:last-child {
+		@include border-bottom-radius(0.4em);
+	}	
+		
+	border: 1px solid $apple-red !important;
+}
+.error-indication-psw {
+	
+	@include border-bottom-radius(0.4em);
+	
+	border-left: 1px solid $apple-red !important;
+	border-right: 1px solid $apple-red !important;
+	border-bottom: 1px solid $apple-red !important;
+}
+
+//////
+
+[class*="icon-"] {
+	font-family: 'Tweamy';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+	content: "\e600";
+}
+.icon-users:before {
+	content: "\e601";
+}
+.icon-user-add:before {
+	content: "\e602";
+}
+.icon-vcard:before {
+	content: "\e603";
+}
+.icon-thumbs-up:before {
+	content: "\e604";
+}
+.icon-thumbs-down:before {
+	content: "\e605";
+}
+.icon-house:before {
+	content: "\e606";
+}
+.icon-cog:before {
+	content: "\e607";
+}
+.icon-camera:before {
+	content: "\e608";
+}
+.icon-cup:before {
+	content: "\e609";
+}
+.icon-key:before {
+	content: "\e60a";
+}
+.icon-eye:before {
+	content: "\e60b";
+}
+.icon-keyboard:before {
+	content: "\e60c";
+}
+.icon-credit-card:before {
+	content: "\e60d";
+}
+.icon-cart:before {
+	content: "\e60e";
+}
+.icon-lock:before {
+	content: "\e60f";
+}
+.icon-lock-open:before {
+	content: "\e610";
+}
+.icon-checkmark:before {
+	content: "\e611";
+}
+.icon-cross:before {
+	content: "\e612";
+}
+.icon-minus:before {
+	content: "\e613";
+}
+.icon-plus:before {
+	content: "\e614";
+}
+.icon-cross2:before {
+	content: "\e615";
+}
+.icon-minus2:before {
+	content: "\e616";
+}
+.icon-plus2:before {
+	content: "\e617";
+}
+.icon-cross3:before {
+	content: "\e618";
+}
+.icon-minus3:before {
+	content: "\e619";
+}
+.icon-plus3:before {
+	content: "\e61a";
+}
+.icon-erase:before {
+	content: "\e61b";
+}
+.icon-blocked:before {
+	content: "\e61c";
+}
+.icon-info:before {
+	content: "\e61d";
+}
+.icon-info2:before {
+	content: "\e61e";
+}
+.icon-question:before {
+	content: "\e61f";
+}
+.icon-help:before {
+	content: "\e620";
+}
+.icon-warning:before {
+	content: "\e621";
+}
+.icon-cycle:before {
+	content: "\e622";
+}
+.icon-cw:before {
+	content: "\e623";
+}
+.icon-ccw:before {
+	content: "\e624";
+}
+.icon-list:before {
+	content: "\e625";
+}
+.icon-list2:before {
+	content: "\e626";
+}
+.icon-add-to-list:before {
+	content: "\e627";
+}
+.icon-pictures:before {
+	content: "\e628";
+}
+.icon-folder:before {
+	content: "\e629";
+}
+.icon-trash:before {
+	content: "\e62a";
+}
+.icon-arrow-left:before {
+	content: "\e62b";
+}
+.icon-arrow-down:before {
+	content: "\e62c";
+}
+.icon-arrow-up:before {
+	content: "\e62d";
+}
+.icon-arrow-right:before {
+	content: "\e62e";
+}
+.icon-arrow-left2:before {
+	content: "\e62f";
+}
+.icon-arrow-down2:before {
+	content: "\e630";
+}
+.icon-arrow-up2:before {
+	content: "\e631";
+}
+.icon-arrow-right2:before {
+	content: "\e632";
+}
+.icon-arrow-left3:before {
+	content: "\e633";
+}
+.icon-arrow-down3:before {
+	content: "\e634";
+}
+.icon-arrow-up3:before {
+	content: "\e635";
+}
+.icon-arrow-right3:before {
+	content: "\e636";
+}
+.icon-arrow-left4:before {
+	content: "\e637";
+}
+.icon-arrow-down4:before {
+	content: "\e638";
+}
+.icon-arrow-up4:before {
+	content: "\e639";
+}
+.icon-uniE63A:before {
+	content: "\e63a";
+}
+.icon-ellipsis:before {
+	content: "\e63b";
+}
+.icon-dots:before {
+	content: "\e63c";
+}
+.icon-dot:before {
+	content: "\e63d";
+}
+.icon-comment:before {
+	content: "\e63e";
+}
+.icon-chat:before {
+	content: "\e63f";
+}
+.icon-star:before {
+	content: "\e640";
+}
+.icon-star2:before {
+	content: "\e641";
+}
+.icon-mail:before {
+	content: "\e642";
+}
+.icon-pencil:before {
+	content: "\e643";
+}
+.icon-layout:before {
+	content: "\e644";
+}
+.icon-file-pdf:before {
+	content: "\e645";
+}
+.icon-file-excel:before {
+	content: "\e646";
+}
+.icon-info3:before {
+	content: "\e647";
+}
+.icon-info4:before {
+	content: "\e648";
+}
+.icon-cog2:before {
+	content: "\e649";
+}
+.icon-cogs:before {
+	content: "\e64a";
+}
+.icon-cog3:before {
+	content: "\e64b";
+}
+.icon-user2:before {
+	content: "\e64c";
+}
+.icon-users2:before {
+	content: "\e64d";
+}
+.icon-user3:before {
+	content: "\e64e";
+}
+.icon-users3:before {
+	content: "\e64f";
+}
+.icon-library:before {
+	content: "\e650";
+}
+.icon-cart2:before {
+	content: "\e651";
+}
+.icon-cart3:before {
+	content: "\e652";
+}
+.icon-cart4:before {
+	content: "\e653";
+}
+.icon-image:before {
+	content: "\e654";
+}
+.icon-image2:before {
+	content: "\e655";
+}
+.icon-images:before {
+	content: "\e656";
+}
+.icon-camera2:before {
+	content: "\e657";
+}
